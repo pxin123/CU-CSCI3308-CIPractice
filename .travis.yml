@@ -1,1 +1,7 @@
-language: rake
+language: c
+
+install: make get-deps
+
+compiler: clang
+
+script: scons
