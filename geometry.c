@@ -16,10 +16,9 @@
 #include "geometry.h"
 
 #define FUZZY_EQ 0.01
-
 #define DEBUG(file, line, func, msg) fprintf(stderr, "DEBUG - %s_%d_%s: %s", file, line, func, msg);
 
-double coord_2d_dist(const coord_2d_t* a, const coord_2d_t* b){
+double coord_2d_dist(const coord_2d_t* a, const coord_2d_t* b) {
 
     /* Input Checks */
     if(!a){
@@ -70,6 +69,13 @@ void coord_2d_midpoint(coord_2d_t* mid, const coord_2d_t* a, const coord_2d_t* b
 
 }
 
-double coord_2d_area_triangle(const coord_2d_t *a,const coord_2d_t *b,const coord_2d_t *c){
-	return abs(a->x * (b->y - c->y) + b->x * (c->y - a->y) + c->x * (a->y - b->y))/2;
+
+double coord_2d_area_triangle(const coord_2d_t* a, const coord_2d_t* b, const coord_2d_t* c){
+    double dist_a = coord_2d_dist(a, b);
+    double dist_b = coord_2d_dist(a, c);
+    double dist_c = coord_2d_dist(b, c);
+    double s = (dist_a + dist_b + dist_c)/2;
+    double area_squared = s * (s - dist_a) * (s - dist_b) * (s - dist_c);
+    double area = sqrt(area_squared);
+    return area;
 }
