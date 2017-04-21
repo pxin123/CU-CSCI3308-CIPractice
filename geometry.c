@@ -64,19 +64,12 @@ void coord_2d_midpoint(coord_2d_t* mid, const coord_2d_t* a, const coord_2d_t* b
         return;
     }
 
+    /* Maths */
     mid->x = ((a->x + b->x) / 2.0 );
     mid->y = ((a->y + b->y) / 2.0 );
 
 }
 
-double coord_2d_area_triangle(const coord_2d_t* a, const coord_2d_t* b, const coord_2d_t* c)
-{
-	double Ax = a->x;
-	double Ay = a->y;
-	double Bx = b->x;
-	double By = b->y;
-	double Cx = c->x;
-	double Cy = c->y;
-	double area = abs((Ax*(By-Cy)+Bx*(Cy-Ay)+Cx*(Ay-By))/2);
-	return area;
+double coord_2d_area_triangle(const coord_2d_t *a,const coord_2d_t *b,const coord_2d_t *c){
+	return abs(a->x * (b->y - c->y) + b->x * (c->y - a->y) + c->x * (a->y - b->y))/2;
 }
