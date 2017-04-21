@@ -166,7 +166,6 @@ END_TEST
 Suite* coord_2d_suite(void)
 {
 
-    /* Create Suite */
     Suite* s = suite_create("coord_2d");
 
     /* Setup Test Cases */

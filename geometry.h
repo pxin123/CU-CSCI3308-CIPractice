@@ -10,7 +10,6 @@
 
 #include <stdbool.h>
 
-/* 2D Coordinate Struct */
 typedef struct coord_2d {
     double x;
     double y;
