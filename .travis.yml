@@ -1,4 +1,4 @@
-language: c
-sudo: required
-compiler: gcc
-script: make dep && make && make test
+install: make test
+
+compiler:
+  - gcc
